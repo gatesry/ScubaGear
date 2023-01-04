@@ -18,8 +18,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      git config --global user.email "xxxx@xxx.com"
-      git config --global user.name "sormita"
+      git config --global user.email "ryan@gatesryan.com"
+      git config --global user.name "gatesry"
       git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
-      git remote add vsts https://xxx.visualstudio.com/xxx/_git/xxxx
+      git remote add vsts https://DK-IT-Portal@dev.azure.com/DK-IT-Portal/CISA%20Scuba/_git/CISA%20Scuba
       git branch -r | grep -v '\->' | while read remote; do git -c http.extraheader="AUTHORIZATION: bearer $(system_accesstoken)" push -u vsts "${remote#origin/}"; done
